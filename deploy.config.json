@@ -1,0 +1,24 @@
+{
+  "platforms": {
+    "github": {
+      "branch": "gh-pages",
+      "base": "/Atom.Ak/",
+      "url": "https://youngsir86.github.io/Atom.Ak/"
+    },
+    "vercel": {
+      "branch": "main",
+      "base": "/",
+      "url": "https://atom-ak.vercel.app/"
+    },
+    "zeabur": {
+      "branch": "main",
+      "base": "/",
+      "url": "https://atom-ak.zeabur.app/"
+    },
+    "netlify": {
+      "branch": "main",
+      "base": "/",
+      "url": "https://atom-ak.netlify.app/"
+    }
+  }
+}

@@ -6,8 +6,15 @@
     "dev": "vite",
     "build": "vite build",
     "build:gh": "vite build --base /Atom.Ak/",
+    "build:vercel": "vite build",
+    "build:zeabur": "vite build",
+    "build:netlify": "vite build",
     "preview": "vite preview",
-    "deploy:gh": "npm run build:gh && npx gh-pages -d dist"
+    "deploy:gh": "npm run build:gh && npx gh-pages -d dist",
+    "deploy:vercel": "npm run build && vercel --prod",
+    "deploy:zeabur": "npm run build && zeabur deploy",
+    "deploy:netlify": "npm run build && netlify deploy --prod --dir=dist",
+    "deploy:all": "npm run deploy:gh"
   },
   "dependencies": {
     "react": "^18.3.1",

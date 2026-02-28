@@ -83,6 +83,41 @@ npm run deploy:gh
 2. 自动检测 Vite 框架
 3. 一键部署
 
+### 分支管理
+项目使用三个分支：
+- **master**: 主要开发分支，用于 Zeabur/Vercel 部署
+- **main**: 备用主分支，与 master 保持同步
+- **gh-pages**: GitHub Pages 部署分支（自动构建）
+
+#### 同步所有分支到 GitHub
+Windows 系统可以运行以下脚本：
+
+**方式 1：使用 PowerShell 脚本**
+```powershell
+.\sync-branches.ps1
+```
+
+**方式 2：使用批处理脚本**
+```batch
+sync-all-branches.bat
+```
+
+**方式 3：手动执行命令**
+```bash
+# 1. 推送到 master
+git checkout master
+git push origin master
+
+# 2. 同步 main 分支
+git checkout main
+git merge master --no-edit
+git push origin main
+
+# 3. 构建并部署 gh-pages
+git checkout master
+npm run deploy:gh
+```
+
 ## 使用说明
 
 ### 登录系统

@@ -748,7 +748,7 @@ function App() {
                   <PieChart className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <h1 className="text-2xl font-bold text-slate-800 mb-2">大搜渠道利润测算模型</h1>
+              <h1 className="text-2xl font-bold text-slate-800 mb-2">大搜渠道利润测算模型 V1.0.0</h1>
               <p className="text-slate-500">请输入访问密码继续</p>
             </div>
 
@@ -809,7 +809,7 @@ function App() {
               <PieChart className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-slate-900 tracking-tight">大搜渠道利润测算模型</h1>
+              <h1 className="text-2xl font-bold text-slate-900 tracking-tight">大搜渠道利润测算模型 V1.0.0</h1>
               <p className="text-sm text-slate-500 mt-1">核心业务：亲子鉴定（无创/个人/司法） | 核心渠道：百度搜索</p>
             </div>
           </div>
@@ -1488,7 +1488,7 @@ function App() {
                 </div>
 
                 {/* 检测底价模式 - 绿色主题，表示底价检测 */}
-                <div className="flex items-center px-3 py-2 bg-emerald-50/95 hover:bg-emerald-50 rounded-lg border-2 border-emerald-300 shadow-md transition-all">
+                <div className="flex items-center px-3 py-2 bg-emerald-50/95 hover:bg-emerald-50 rounded-lg border-2 border-emerald-300 shadow-md transition-all" title="检测底价模式计算规则：无创 300 元/单，个人 150 元/单，司法 0.5">
                   <label className="flex items-center text-xs font-bold text-emerald-700 cursor-pointer select-none">
                     <input
                       type="checkbox"

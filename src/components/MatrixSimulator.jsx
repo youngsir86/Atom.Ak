@@ -33,9 +33,9 @@ export const MatrixSimulator = ({
 
                 {/* Control Panel */}
                 <div className="p-3 md:p-4 bg-slate-50 border-b border-slate-200 shrink-0">
-                    <div className="flex flex-wrap items-end gap-3 pb-2">
+                    <div className="flex flex-wrap lg:flex-nowrap items-end justify-between gap-3 pb-2 w-full">
                         {/* 全局及底价设定 */}
-                        <div className="flex space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div className="flex flex-1 min-w-[180px] space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
                             <div>
                                 <label className="text-[10px] font-bold text-slate-500 block mb-1">集团成本分摊(¥)</label>
                                 <input
@@ -61,7 +61,7 @@ export const MatrixSimulator = ({
                         </div>
 
                         {/* 区间设定 */}
-                        <div className="flex space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div className="flex flex-1 min-w-[150px] space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
                             <div>
                                 <label className="text-[10px] font-bold text-slate-500 block mb-1">综合单成本(下限)</label>
                                 <input
@@ -84,7 +84,7 @@ export const MatrixSimulator = ({
                             </div>
                         </div>
 
-                        <div className="flex space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div className="flex flex-1 min-w-[150px] space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
                             <div>
                                 <label className="text-[10px] font-bold text-slate-500 block mb-1">日均售中(下限)</label>
                                 <input
@@ -108,7 +108,7 @@ export const MatrixSimulator = ({
                         </div>
 
                         {/* 转化率实时调节区 */}
-                        <div className="flex space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div className="flex flex-1 min-w-[200px] space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
                             <div>
                                 <label className="text-[10px] font-bold text-emerald-600 block mb-1">无创转化率</label>
                                 <input
@@ -142,7 +142,7 @@ export const MatrixSimulator = ({
                         </div>
 
                         {/* 客单价实时调节区 */}
-                        <div className="flex space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
+                        <div className="flex flex-1 min-w-[220px] space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
                             <div>
                                 <label className="text-[10px] font-bold text-emerald-600 block mb-1">无创客单价</label>
                                 <input
@@ -177,7 +177,7 @@ export const MatrixSimulator = ({
 
                         <button
                             onClick={generateMatrix}
-                            className="flex items-center h-[46px] px-6 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl transition-colors shadow-md ml-auto"
+                            className="flex-shrink-0 flex items-center h-[46px] px-6 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl transition-colors shadow-md lg:ml-2"
                         >
                             <BarChart3 className="w-4 h-4 mr-2" /> 生成/刷新矩阵
                         </button>

@@ -43,7 +43,7 @@ export const MatrixSimulator = ({
                                     step="1000"
                                     value={matrixConfig.groupCostShare}
                                     onChange={(e) => handleMatrixConfigChange("groupCostShare", e.target.value)}
-                                    className="w-24 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
+                                    className="w-20 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
                                     placeholder="0"
                                 />
                             </div>
@@ -69,7 +69,7 @@ export const MatrixSimulator = ({
                                     step="10"
                                     value={matrixConfig.costMin}
                                     onChange={(e) => handleMatrixConfigChange("costMin", e.target.value)}
-                                    className="w-20 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
+                                    className="w-16 px-1.5 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
                                 />
                             </div>
                             <div>
@@ -79,30 +79,30 @@ export const MatrixSimulator = ({
                                     step="10"
                                     value={matrixConfig.costMax}
                                     onChange={(e) => handleMatrixConfigChange("costMax", e.target.value)}
-                                    className="w-20 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
+                                    className="w-16 px-1.5 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
                                 />
                             </div>
                         </div>
 
-                        <div className="flex space-x-3 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
+                        <div className="flex space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm">
                             <div>
-                                <label className="text-[10px] font-bold text-slate-500 block mb-1">总日均售中量(下限)</label>
+                                <label className="text-[10px] font-bold text-slate-500 block mb-1">日均售中(下限)</label>
                                 <input
                                     type="number"
                                     step="10"
                                     value={matrixConfig.leadsMin}
                                     onChange={(e) => handleMatrixConfigChange("leadsMin", e.target.value)}
-                                    className="w-24 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
+                                    className="w-16 px-1.5 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
                                 />
                             </div>
                             <div>
-                                <label className="text-[10px] font-bold text-slate-500 block mb-1">总日均售中量(上限)</label>
+                                <label className="text-[10px] font-bold text-slate-500 block mb-1">日均售中(上限)</label>
                                 <input
                                     type="number"
                                     step="10"
                                     value={matrixConfig.leadsMax}
                                     onChange={(e) => handleMatrixConfigChange("leadsMax", e.target.value)}
-                                    className="w-24 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
+                                    className="w-16 px-1.5 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
                                 />
                             </div>
                         </div>
@@ -116,7 +116,7 @@ export const MatrixSimulator = ({
                                     step="0.01"
                                     value={matrixConfig.wuchuangConvRate}
                                     onChange={(e) => handleMatrixConfigChange("wuchuangConvRate", e.target.value)}
-                                    className="w-20 px-2 py-1 bg-emerald-50/50 border border-emerald-200 text-emerald-700 rounded text-sm font-semibold outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+                                    className="w-16 px-1.5 py-1 bg-emerald-50/50 border border-emerald-200 text-emerald-700 rounded text-sm font-semibold outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
                                 />
                             </div>
                             <div>
@@ -126,7 +126,7 @@ export const MatrixSimulator = ({
                                     step="0.01"
                                     value={matrixConfig.gerenConvRate}
                                     onChange={(e) => handleMatrixConfigChange("gerenConvRate", e.target.value)}
-                                    className="w-20 px-2 py-1 bg-indigo-50/50 border border-indigo-200 text-indigo-700 rounded text-sm font-semibold outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                                    className="w-16 px-1.5 py-1 bg-indigo-50/50 border border-indigo-200 text-indigo-700 rounded text-sm font-semibold outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
                                 />
                             </div>
                             <div>
@@ -136,7 +136,7 @@ export const MatrixSimulator = ({
                                     step="0.01"
                                     value={matrixConfig.sifaConvRate}
                                     onChange={(e) => handleMatrixConfigChange("sifaConvRate", e.target.value)}
-                                    className="w-20 px-2 py-1 bg-amber-50/50 border border-amber-200 text-amber-700 rounded text-sm font-semibold outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                                    className="w-16 px-1.5 py-1 bg-amber-50/50 border border-amber-200 text-amber-700 rounded text-sm font-semibold outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                                 />
                             </div>
                         </div>
@@ -150,7 +150,7 @@ export const MatrixSimulator = ({
                                     step="100"
                                     value={matrixConfig.wuchuangUnitPrice}
                                     onChange={(e) => handleMatrixConfigChange("wuchuangUnitPrice", e.target.value)}
-                                    className="w-24 px-2 py-1 bg-emerald-50/50 border border-emerald-200 text-emerald-700 rounded text-sm font-semibold outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+                                    className="w-20 px-1.5 py-1 bg-emerald-50/50 border border-emerald-200 text-emerald-700 rounded text-sm font-semibold outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
                                 />
                             </div>
                             <div>
@@ -160,7 +160,7 @@ export const MatrixSimulator = ({
                                     step="100"
                                     value={matrixConfig.gerenUnitPrice}
                                     onChange={(e) => handleMatrixConfigChange("gerenUnitPrice", e.target.value)}
-                                    className="w-24 px-2 py-1 bg-indigo-50/50 border border-indigo-200 text-indigo-700 rounded text-sm font-semibold outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                                    className="w-20 px-1.5 py-1 bg-indigo-50/50 border border-indigo-200 text-indigo-700 rounded text-sm font-semibold outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
                                 />
                             </div>
                             <div>
@@ -170,7 +170,7 @@ export const MatrixSimulator = ({
                                     step="100"
                                     value={matrixConfig.sifaUnitPrice}
                                     onChange={(e) => handleMatrixConfigChange("sifaUnitPrice", e.target.value)}
-                                    className="w-24 px-2 py-1 bg-amber-50/50 border border-amber-200 text-amber-700 rounded text-sm font-semibold outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                                    className="w-20 px-1.5 py-1 bg-amber-50/50 border border-amber-200 text-amber-700 rounded text-sm font-semibold outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
                                 />
                             </div>
                         </div>

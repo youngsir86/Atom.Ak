@@ -66,7 +66,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-800 pb-20 selection:bg-blue-200 selection:text-blue-900">
-      <div className="max-w-[1400px] mx-auto p-4 md:p-6 lg:p-8 space-y-6">
+      <div className="w-full mx-auto p-4 md:p-6 lg:p-8 space-y-6">
 
         {/* 顶部状态汇总与主操作区 */}
         <ResultSummaryCard
@@ -97,11 +97,10 @@ function App() {
               currentResult={currentResult}
               handleCategoryChange={handleCategoryChange}
             />
+            {/* 底部详细核算表 */}
+            <ResultTable currentResult={currentResult} />
           </div>
         </div>
-
-        {/* 底部详细核算表 */}
-        <ResultTable currentResult={currentResult} />
 
         {/* 历史记录面板 */}
         <HistoryPanel

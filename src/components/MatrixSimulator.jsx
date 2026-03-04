@@ -26,45 +26,39 @@ export const MatrixSimulator = ({
                             <p className="text-orange-50 text-xs mt-0.5">跨度以 10 为单位，探索【单成本】与【日均量】的安全边界（显示净利润）</p>
                         </div>
                     </div>
-                    <div className="flex items-center space-x-3">
-                        {/* 集团成本分摊输入框 - 橙色主题，与标题栏协调 */}
-                        <div className="flex items-center px-3 py-2 bg-white/95 hover:bg-white rounded-lg border-2 border-orange-300 shadow-md transition-all">
-                            <label className="text-xs font-bold text-orange-700 whitespace-nowrap mr-2">
-                                集团成本分摊:
-                            </label>
-                            <div className="relative">
-                                <span className="absolute left-1.5 top-1 text-orange-600 text-xs font-bold">¥</span>
-                                <input
-                                    type="number"
-                                    step="1000"
-                                    value={matrixConfig.groupCostShare}
-                                    onChange={(e) => handleMatrixConfigChange("groupCostShare", e.target.value)}
-                                    className="w-28 pl-5 pr-2 py-1 bg-orange-50/50 border border-orange-200 text-orange-700 rounded text-sm font-bold outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-200 text-right placeholder-orange-400"
-                                    placeholder="0"
-                                />
-                            </div>
-                        </div>
-
-                        {/* 检测底价模式 - 绿色主题，表示底价检测 */}
-                        <div className="flex items-center px-3 py-2 bg-emerald-50/95 hover:bg-emerald-50 rounded-lg border-2 border-emerald-300 shadow-md transition-all" title="检测底价模式计算规则：无创 300 元/单，个人 150 元/单，司法 0.5">
-                            <label className="flex items-center text-xs font-bold text-emerald-700 cursor-pointer select-none">
-                                <input
-                                    type="checkbox"
-                                    className="mr-2 h-4 w-4 rounded border-emerald-300 text-emerald-600 focus:ring-emerald-500"
-                                    checked={!!matrixConfig.useFloorLabCost}
-                                    onChange={(e) => handleMatrixConfigChange("useFloorLabCost", e.target.checked)}
-                                />
-                                检测底价模式
-                            </label>
-                        </div>
-                        <button onClick={() => setShowMatrixModal(false)} className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors">
-                            <XIcon className="w-6 h-6" />
-                        </button>
-                    </div>
+                    <button onClick={() => setShowMatrixModal(false)} className="p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors cursor-pointer">
+                        <XIcon className="w-7 h-7" />
+                    </button>
                 </div>
 
                 {/* Control Panel */}
-                <div className="p-4 bg-slate-50 border-b border-slate-200 shrink-0 flex flex-wrap items-end gap-4">
+                <div className="p-4 bg-slate-50 border-b border-slate-200 shrink-0 flex flex-wrap items-end gap-3">
+                    {/* 全局及底价设定 */}
+                    <div className="flex space-x-3 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
+                        <div>
+                            <label className="text-[10px] font-bold text-slate-500 block mb-1">集团成本分摊(¥)</label>
+                            <input
+                                type="number"
+                                step="1000"
+                                value={matrixConfig.groupCostShare}
+                                onChange={(e) => handleMatrixConfigChange("groupCostShare", e.target.value)}
+                                className="w-24 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
+                                placeholder="0"
+                            />
+                        </div>
+                        <div className="flex items-end pb-0.5" title="检测底价模式规则：无创 300 元/单，个人 150 元/单，司法 0.5">
+                            <label className="flex items-center h-[28px] px-2 text-[11px] font-bold text-slate-600 cursor-pointer select-none border border-slate-200 bg-slate-50 rounded transition-colors hover:bg-slate-100">
+                                <input
+                                    type="checkbox"
+                                    className="mr-1.5 h-3.5 w-3.5 rounded border-slate-300 text-amber-500 focus:ring-amber-500"
+                                    checked={!!matrixConfig.useFloorLabCost}
+                                    onChange={(e) => handleMatrixConfigChange("useFloorLabCost", e.target.checked)}
+                                />
+                                开启底价检测
+                            </label>
+                        </div>
+                    </div>
+
                     {/* 区间设定 */}
                     <div className="flex space-x-3 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
                         <div>

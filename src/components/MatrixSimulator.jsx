@@ -13,8 +13,8 @@ export const MatrixSimulator = ({
     if (!showMatrixModal) return null;
 
     return (
-        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[80] flex items-center justify-center p-4">
-            <div className="bg-white w-full max-w-[1400px] max-h-[95vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-in zoom-in-95 duration-200">
+        <div className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[80] flex items-center justify-center p-2 md:p-4">
+            <div className="bg-white w-full max-w-[1500px] max-h-[95vh] rounded-2xl shadow-2xl overflow-hidden flex flex-col animate-in zoom-in-95 duration-200">
                 {/* Header */}
                 <div className="bg-gradient-to-r from-amber-500 to-orange-500 p-5 flex items-center justify-between shrink-0">
                     <div className="flex items-center text-white">
@@ -32,154 +32,156 @@ export const MatrixSimulator = ({
                 </div>
 
                 {/* Control Panel */}
-                <div className="p-4 bg-slate-50 border-b border-slate-200 shrink-0 flex flex-wrap items-end gap-3">
-                    {/* 全局及底价设定 */}
-                    <div className="flex space-x-3 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
-                        <div>
-                            <label className="text-[10px] font-bold text-slate-500 block mb-1">集团成本分摊(¥)</label>
-                            <input
-                                type="number"
-                                step="1000"
-                                value={matrixConfig.groupCostShare}
-                                onChange={(e) => handleMatrixConfigChange("groupCostShare", e.target.value)}
-                                className="w-24 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
-                                placeholder="0"
-                            />
-                        </div>
-                        <div className="flex items-end pb-0.5" title="检测底价模式规则：无创 300 元/单，个人 150 元/单，司法 0.5">
-                            <label className="flex items-center h-[28px] px-2 text-[11px] font-bold text-slate-600 cursor-pointer select-none border border-slate-200 bg-slate-50 rounded transition-colors hover:bg-slate-100">
+                <div className="p-3 md:p-4 bg-slate-50 border-b border-slate-200 shrink-0">
+                    <div className="flex items-end gap-3 flex-nowrap overflow-x-auto pb-2 scrollbar-thin scrollbar-thumb-slate-300">
+                        {/* 全局及底价设定 */}
+                        <div className="flex space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm shrink-0">
+                            <div>
+                                <label className="text-[10px] font-bold text-slate-500 block mb-1">集团成本分摊(¥)</label>
                                 <input
-                                    type="checkbox"
-                                    className="mr-1.5 h-3.5 w-3.5 rounded border-slate-300 text-amber-500 focus:ring-amber-500"
-                                    checked={!!matrixConfig.useFloorLabCost}
-                                    onChange={(e) => handleMatrixConfigChange("useFloorLabCost", e.target.checked)}
+                                    type="number"
+                                    step="1000"
+                                    value={matrixConfig.groupCostShare}
+                                    onChange={(e) => handleMatrixConfigChange("groupCostShare", e.target.value)}
+                                    className="w-24 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
+                                    placeholder="0"
                                 />
-                                开启底价检测
-                            </label>
+                            </div>
+                            <div className="flex items-end pb-0.5" title="检测底价模式规则：无创 300 元/单，个人 150 元/单，司法 0.5">
+                                <label className="flex items-center h-[28px] px-2 text-[11px] font-bold text-slate-600 cursor-pointer select-none border border-slate-200 bg-slate-50 rounded transition-colors hover:bg-slate-100">
+                                    <input
+                                        type="checkbox"
+                                        className="mr-1.5 h-3.5 w-3.5 rounded border-slate-300 text-amber-500 focus:ring-amber-500"
+                                        checked={!!matrixConfig.useFloorLabCost}
+                                        onChange={(e) => handleMatrixConfigChange("useFloorLabCost", e.target.checked)}
+                                    />
+                                    开启底价检测
+                                </label>
+                            </div>
                         </div>
-                    </div>
 
-                    {/* 区间设定 */}
-                    <div className="flex space-x-3 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
-                        <div>
-                            <label className="text-[10px] font-bold text-slate-500 block mb-1">综合单成本(下限)</label>
-                            <input
-                                type="number"
-                                step="10"
-                                value={matrixConfig.costMin}
-                                onChange={(e) => handleMatrixConfigChange("costMin", e.target.value)}
-                                className="w-20 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
-                            />
+                        {/* 区间设定 */}
+                        <div className="flex space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm shrink-0">
+                            <div>
+                                <label className="text-[10px] font-bold text-slate-500 block mb-1">综合单成本(下限)</label>
+                                <input
+                                    type="number"
+                                    step="10"
+                                    value={matrixConfig.costMin}
+                                    onChange={(e) => handleMatrixConfigChange("costMin", e.target.value)}
+                                    className="w-20 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
+                                />
+                            </div>
+                            <div>
+                                <label className="text-[10px] font-bold text-slate-500 block mb-1">综合单成本(上限)</label>
+                                <input
+                                    type="number"
+                                    step="10"
+                                    value={matrixConfig.costMax}
+                                    onChange={(e) => handleMatrixConfigChange("costMax", e.target.value)}
+                                    className="w-20 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <label className="text-[10px] font-bold text-slate-500 block mb-1">综合单成本(上限)</label>
-                            <input
-                                type="number"
-                                step="10"
-                                value={matrixConfig.costMax}
-                                onChange={(e) => handleMatrixConfigChange("costMax", e.target.value)}
-                                className="w-20 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
-                            />
-                        </div>
-                    </div>
 
-                    <div className="flex space-x-3 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
-                        <div>
-                            <label className="text-[10px] font-bold text-slate-500 block mb-1">总日均售中量(下限)</label>
-                            <input
-                                type="number"
-                                step="10"
-                                value={matrixConfig.leadsMin}
-                                onChange={(e) => handleMatrixConfigChange("leadsMin", e.target.value)}
-                                className="w-24 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
-                            />
+                        <div className="flex space-x-3 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
+                            <div>
+                                <label className="text-[10px] font-bold text-slate-500 block mb-1">总日均售中量(下限)</label>
+                                <input
+                                    type="number"
+                                    step="10"
+                                    value={matrixConfig.leadsMin}
+                                    onChange={(e) => handleMatrixConfigChange("leadsMin", e.target.value)}
+                                    className="w-24 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
+                                />
+                            </div>
+                            <div>
+                                <label className="text-[10px] font-bold text-slate-500 block mb-1">总日均售中量(上限)</label>
+                                <input
+                                    type="number"
+                                    step="10"
+                                    value={matrixConfig.leadsMax}
+                                    onChange={(e) => handleMatrixConfigChange("leadsMax", e.target.value)}
+                                    className="w-24 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <label className="text-[10px] font-bold text-slate-500 block mb-1">总日均售中量(上限)</label>
-                            <input
-                                type="number"
-                                step="10"
-                                value={matrixConfig.leadsMax}
-                                onChange={(e) => handleMatrixConfigChange("leadsMax", e.target.value)}
-                                className="w-24 px-2 py-1 bg-slate-50 border border-slate-200 rounded text-sm outline-none focus:border-amber-400"
-                            />
-                        </div>
-                    </div>
 
-                    {/* 转化率实时调节区 */}
-                    <div className="flex space-x-3 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
-                        <div>
-                            <label className="text-[10px] font-bold text-emerald-600 block mb-1">无创转化率</label>
-                            <input
-                                type="number"
-                                step="0.01"
-                                value={matrixConfig.wuchuangConvRate}
-                                onChange={(e) => handleMatrixConfigChange("wuchuangConvRate", e.target.value)}
-                                className="w-20 px-2 py-1 bg-emerald-50/50 border border-emerald-200 text-emerald-700 rounded text-sm font-semibold outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                            />
+                        {/* 转化率实时调节区 */}
+                        <div className="flex space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm shrink-0">
+                            <div>
+                                <label className="text-[10px] font-bold text-emerald-600 block mb-1">无创转化率</label>
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    value={matrixConfig.wuchuangConvRate}
+                                    onChange={(e) => handleMatrixConfigChange("wuchuangConvRate", e.target.value)}
+                                    className="w-20 px-2 py-1 bg-emerald-50/50 border border-emerald-200 text-emerald-700 rounded text-sm font-semibold outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+                                />
+                            </div>
+                            <div>
+                                <label className="text-[10px] font-bold text-indigo-600 block mb-1">个人转化率</label>
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    value={matrixConfig.gerenConvRate}
+                                    onChange={(e) => handleMatrixConfigChange("gerenConvRate", e.target.value)}
+                                    className="w-20 px-2 py-1 bg-indigo-50/50 border border-indigo-200 text-indigo-700 rounded text-sm font-semibold outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                                />
+                            </div>
+                            <div>
+                                <label className="text-[10px] font-bold text-amber-600 block mb-1">司法转化率</label>
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    value={matrixConfig.sifaConvRate}
+                                    onChange={(e) => handleMatrixConfigChange("sifaConvRate", e.target.value)}
+                                    className="w-20 px-2 py-1 bg-amber-50/50 border border-amber-200 text-amber-700 rounded text-sm font-semibold outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <label className="text-[10px] font-bold text-indigo-600 block mb-1">个人转化率</label>
-                            <input
-                                type="number"
-                                step="0.01"
-                                value={matrixConfig.gerenConvRate}
-                                onChange={(e) => handleMatrixConfigChange("gerenConvRate", e.target.value)}
-                                className="w-20 px-2 py-1 bg-indigo-50/50 border border-indigo-200 text-indigo-700 rounded text-sm font-semibold outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-[10px] font-bold text-amber-600 block mb-1">司法转化率</label>
-                            <input
-                                type="number"
-                                step="0.01"
-                                value={matrixConfig.sifaConvRate}
-                                onChange={(e) => handleMatrixConfigChange("sifaConvRate", e.target.value)}
-                                className="w-20 px-2 py-1 bg-amber-50/50 border border-amber-200 text-amber-700 rounded text-sm font-semibold outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
-                            />
-                        </div>
-                    </div>
 
-                    {/* 客单价实时调节区 */}
-                    <div className="flex space-x-3 bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
-                        <div>
-                            <label className="text-[10px] font-bold text-emerald-600 block mb-1">无创客单价</label>
-                            <input
-                                type="number"
-                                step="100"
-                                value={matrixConfig.wuchuangUnitPrice}
-                                onChange={(e) => handleMatrixConfigChange("wuchuangUnitPrice", e.target.value)}
-                                className="w-24 px-2 py-1 bg-emerald-50/50 border border-emerald-200 text-emerald-700 rounded text-sm font-semibold outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
-                            />
+                        {/* 客单价实时调节区 */}
+                        <div className="flex space-x-2 bg-white p-2 rounded-xl border border-slate-200 shadow-sm shrink-0">
+                            <div>
+                                <label className="text-[10px] font-bold text-emerald-600 block mb-1">无创客单价</label>
+                                <input
+                                    type="number"
+                                    step="100"
+                                    value={matrixConfig.wuchuangUnitPrice}
+                                    onChange={(e) => handleMatrixConfigChange("wuchuangUnitPrice", e.target.value)}
+                                    className="w-24 px-2 py-1 bg-emerald-50/50 border border-emerald-200 text-emerald-700 rounded text-sm font-semibold outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
+                                />
+                            </div>
+                            <div>
+                                <label className="text-[10px] font-bold text-indigo-600 block mb-1">个人客单价</label>
+                                <input
+                                    type="number"
+                                    step="100"
+                                    value={matrixConfig.gerenUnitPrice}
+                                    onChange={(e) => handleMatrixConfigChange("gerenUnitPrice", e.target.value)}
+                                    className="w-24 px-2 py-1 bg-indigo-50/50 border border-indigo-200 text-indigo-700 rounded text-sm font-semibold outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                                />
+                            </div>
+                            <div>
+                                <label className="text-[10px] font-bold text-amber-600 block mb-1">司法客单价</label>
+                                <input
+                                    type="number"
+                                    step="100"
+                                    value={matrixConfig.sifaUnitPrice}
+                                    onChange={(e) => handleMatrixConfigChange("sifaUnitPrice", e.target.value)}
+                                    className="w-24 px-2 py-1 bg-amber-50/50 border border-amber-200 text-amber-700 rounded text-sm font-semibold outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <label className="text-[10px] font-bold text-indigo-600 block mb-1">个人客单价</label>
-                            <input
-                                type="number"
-                                step="100"
-                                value={matrixConfig.gerenUnitPrice}
-                                onChange={(e) => handleMatrixConfigChange("gerenUnitPrice", e.target.value)}
-                                className="w-24 px-2 py-1 bg-indigo-50/50 border border-indigo-200 text-indigo-700 rounded text-sm font-semibold outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
-                            />
-                        </div>
-                        <div>
-                            <label className="text-[10px] font-bold text-amber-600 block mb-1">司法客单价</label>
-                            <input
-                                type="number"
-                                step="100"
-                                value={matrixConfig.sifaUnitPrice}
-                                onChange={(e) => handleMatrixConfigChange("sifaUnitPrice", e.target.value)}
-                                className="w-24 px-2 py-1 bg-amber-50/50 border border-amber-200 text-amber-700 rounded text-sm font-semibold outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500"
-                            />
-                        </div>
-                    </div>
 
-                    <button
-                        onClick={generateMatrix}
-                        className="flex items-center h-[46px] px-6 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl transition-colors shadow-md"
-                    >
-                        <BarChart3 className="w-4 h-4 mr-2" /> 生成/刷新矩阵
-                    </button>
+                        <button
+                            onClick={generateMatrix}
+                            className="flex items-center h-[46px] shrink-0 px-6 bg-amber-500 hover:bg-amber-600 text-white font-bold rounded-xl transition-colors shadow-md ml-auto"
+                        >
+                            <BarChart3 className="w-4 h-4 mr-2" /> 生成/刷新矩阵
+                        </button>
+                    </div>
                 </div>
 
                 {/* Matrix View */}

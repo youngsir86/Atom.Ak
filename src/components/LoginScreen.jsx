@@ -25,8 +25,8 @@ export const LoginScreen = ({ onLoginSuccess }) => {
                                 <PieChart className="w-8 h-8 text-white" />
                             </div>
                         </div>
-                        <h1 className="text-2xl font-bold text-slate-800 mb-2">大搜渠道利润测算模型 V1.0.0</h1>
-                        <p className="text-slate-500">请输入访问密码继续</p>
+                        <h1 className="text-2xl font-bold text-slate-800 mb-2">大搜渠道利润测算模型 V1.0.1</h1>
+                        <p className="text-slate-500">请输入访问授权码</p>
                     </div>
 
                     <form onSubmit={handleLogin} className="space-y-6">

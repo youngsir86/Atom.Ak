@@ -14,8 +14,8 @@ export const ResultSummaryCard = ({ currentResult, openMatrixModal, generateAIAn
                         <PieChart className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                        <h1 className="text-2xl font-bold text-slate-900 tracking-tight">大搜渠道利润测算模型 V1.0.0</h1>
-                        <p className="text-sm text-slate-500 mt-1">核心业务：亲子鉴定（无创/个人/司法） | 核心渠道：百度搜索</p>
+                        <h1 className="text-2xl font-bold text-slate-900 tracking-tight">大搜渠道利润测算模型</h1>
+                        <p className="text-[13px] font-medium text-slate-500 mt-1 flex items-center">核心业务：亲子鉴定（无创/个人/司法） | 核心渠道：百度搜索</p>
                     </div>
                 </div>
                 <div className="flex items-center space-x-3 flex-wrap justify-center gap-y-2">

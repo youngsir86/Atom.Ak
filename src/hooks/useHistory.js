@@ -43,7 +43,13 @@ export const useHistory = (currentInputs, currentResult, setConfirmModal) => {
     };
 
     const clearAllHistory = () => {
-        setHistory([]);
+        setConfirmModal({
+            show: true,
+            message: "您确定要清空所有已经保存的历史测算快照吗？此操作无法撤销。",
+            onConfirm: () => {
+                setHistory([]);
+            },
+        });
     };
 
     const exportToCSV = () => {

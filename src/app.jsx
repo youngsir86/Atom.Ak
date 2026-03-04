@@ -36,7 +36,7 @@ function App() {
     restoreDefaults,
   } = useProfitModel();
 
-  const { history, saveToHistory, deleteHistoryRecord, clearAllHistory, exportToCSV } = useHistory(
+  const { history, saveToSnapshot, deleteHistoryRecord, clearAllHistory, exportToCSV } = useHistory(
     inputs,
     currentResult,
     setConfirmModal
@@ -75,7 +75,7 @@ function App() {
           generateAIAnalysis={generateAIAnalysis}
           setAsDefault={() => setAsDefault(setConfirmModal)}
           restoreDefaults={() => restoreDefaults(setConfirmModal)}
-          saveToHistory={saveToHistory}
+          saveToHistory={saveToSnapshot}
         />
 
         {/* 骨干布局：左侧全局配置 + 右侧业务线设定 */}

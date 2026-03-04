@@ -25,17 +25,29 @@ export const useProfitModel = () => {
         setCurrentResult(calculateResult(inputs));
     }, [inputs]);
 
-    const setAsDefaultConfig = () => {
-        localStorage.setItem("profitModelDefaultConfig", JSON.stringify(inputs));
+    const setAsDefault = (setConfirmModal) => {
+        setConfirmModal({
+            show: true,
+            message: "确定将当前所有参数配置（含漏斗及成本策略）设为以后每次打开系统的基准值吗？",
+            onConfirm: () => {
+                localStorage.setItem("profitModelDefaultConfig", JSON.stringify(inputs));
+            },
+        });
     };
 
-    const restoreDefaultConfig = () => {
-        let def = INITIAL_STATE;
-        try {
-            const customDefault = localStorage.getItem("profitModelDefaultConfig");
-            if (customDefault) def = JSON.parse(customDefault);
-        } catch (e) { }
-        setInputs(def);
+    const restoreDefaults = (setConfirmModal) => {
+        setConfirmModal({
+            show: true,
+            message: "确定要放弃当前屏幕上的修改，重新加载初始默认的安全基准测算值吗？\n(未保存的历史快照将被清空)",
+            onConfirm: () => {
+                let def = INITIAL_STATE;
+                try {
+                    const customDefault = localStorage.getItem("profitModelDefaultConfig");
+                    if (customDefault) def = JSON.parse(customDefault);
+                } catch (e) { }
+                setInputs({ ...def });
+            },
+        });
     };
 
     const handleGlobalChange = (field, value) => {
@@ -92,8 +104,8 @@ export const useProfitModel = () => {
     return {
         inputs,
         currentResult,
-        setAsDefaultConfig,
-        restoreDefaultConfig,
+        setAsDefault,
+        restoreDefaults,
         handleGlobalChange,
         handleManagementChange,
         handleRatioChange,

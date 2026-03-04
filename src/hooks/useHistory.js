@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { safeNum } from "../utils/formatters";
 
-export const useHistory = () => {
+export const useHistory = (currentInputs, currentResult, setConfirmModal) => {
     const [history, setHistory] = useState(() => {
         try {
             const savedHistory = localStorage.getItem("profitModelHistory");
@@ -35,6 +35,8 @@ export const useHistory = () => {
         };
         setHistory([...history, newRecord]);
     };
+
+    const saveToSnapshot = () => saveToHistory(currentInputs, currentResult);
 
     const deleteHistoryRecord = (id) => {
         setHistory((prev) => prev.filter((record) => record.id !== id));
@@ -118,7 +120,7 @@ export const useHistory = () => {
 
     return {
         history,
-        saveToHistory,
+        saveToSnapshot,
         deleteHistoryRecord,
         clearAllHistory,
         exportToCSV,
